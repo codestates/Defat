@@ -2,13 +2,10 @@
 name: KPT
 about: KPT
 title: "[KPT] 0주차 0요일"
-labels: ''
-assignees: ''
+labels: KPT
+assignees: Sun970324, BaGyun0107, Sangkan-K, gamemakerr
 
 ---
-
-> 팀원 중 한 분이 작성해주세요.
-> Keep, Problem 항목에 대해서 매주 정기적인 날에 회고를 진행하여 기록하고, 그것을 기반으로 Try (Action Items)  이슈를 생성해주세요.
 
 ## Keep (유지할 항목)
  
