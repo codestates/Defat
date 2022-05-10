@@ -3,7 +3,7 @@ name: Issue Task Card (Back)
 about: Issue Task Card
 title: "[Tesk]"
 labels: 'Backend, E: 1h, E: 2h, E: 3h, Urgency: High, Urgency: Low, Urgency: Middle'
-assignees: Sun970324, BaGyun0107, Sangkan-K, gamemakerr
+assignees: BaGyun0107, Sangkan-K
 
 ---
 

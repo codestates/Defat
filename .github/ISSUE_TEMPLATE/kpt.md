@@ -3,7 +3,7 @@ name: KPT
 about: KPT
 title: "[KPT] 0주차 0요일"
 labels: KPT
-assignees: Sun970324, BaGyun0107, Sangkan-K, gamemakerr
+assignees: BaGyun0107, gamemakerr, Sangkan-K, Sun970324
 
 ---
 
