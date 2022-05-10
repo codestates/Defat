@@ -1,33 +1,26 @@
 ---
-name: Issue Task Card
+name: Issue Task Card (Front)
 about: Issue Task Card
 title: "[Task] 이슈카드 제목 설정하기"
-labels: ''
-assignees: ''
+labels: Frontend
+assignees: Sun970324, gamemakerr
 
 ---
 
 ### ISSUE
 * Group:  `client`, `server`, `sr`
 * Type: `bug`, `feature`, `delete`
-* Detail: fix actions from client redux
+* Detail: 
 
-### TODO
+### 할 일
 1. [ ]  Job1
 2. [ ]  Job2
 3. [ ]  Job3
  
-### Estimated time
-> Pick one
- 
-### `0.5h`
-### `1h`
-### `1.5h`
-### `2h`
-### `2.5h`
-### `3h`
+### 소요 시간
+### `E: 1h`
+### `E: 2h`
+### `E: 3h`
+
 ### Labels
-* Estimated time: `E: 1h`
-* Group : `client`, `server`
-* Sprint: `Sprint__NUMBER__`
 * Urgency: `High`, `Middle`, `Low`
