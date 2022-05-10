@@ -3,7 +3,7 @@ name: Issue Task Card (Front)
 about: Issue Task Card
 title: "[Tesk]"
 labels: 'E: 1h, E: 2h, E: 3h, Frontend, Urgency: High, Urgency: Low, Urgency: Middle'
-assignees: Sun970324, gamemakerr
+assignees: gamemakerr, Sun970324
 
 ---
 

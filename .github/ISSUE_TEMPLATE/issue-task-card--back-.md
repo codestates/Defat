@@ -1,7 +1,7 @@
 ---
 name: Issue Task Card (Back)
 about: Issue Task Card
-title: ''
+title: "[Tesk]"
 labels: 'Backend, E: 1h, E: 2h, E: 3h, Urgency: High, Urgency: Low, Urgency: Middle'
 assignees: BaGyun0107, Sangkan-K
 
