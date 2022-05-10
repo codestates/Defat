@@ -1,14 +1,14 @@
 ---
-name: Issue Task Card (Front)
+name: Issue Task Card (Back)
 about: Issue Task Card
-title: "[Task] 이슈카드 제목 설정하기"
-labels: Frontend
-assignees: gamemakerr, Sun970324
+title: ''
+labels: Backend
+assignees: BaGyun0107, Sangkan-K
 
 ---
 
 ### ISSUE
-* Group:  `client`, `server`, `sr`
+* Group: `server`
 * Type: `bug`, `feature`, `delete`
 * Detail: 
 
