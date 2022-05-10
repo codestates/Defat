@@ -1,7 +1,7 @@
 ---
 name: Issue Task Card (Front)
 about: Issue Task Card
-title: "[TESK]"
+title: "[TESK] (F)"
 labels: 'E: 1h, E: 2h, E: 3h, Frontend, Urgency: High, Urgency: Low, Urgency: Middle'
 assignees: gamemakerr, Sun970324
 
