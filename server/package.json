@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard && node my-tests.js"
   },
   "repository": {
     "type": "git",
@@ -28,14 +28,5 @@
   "devDependencies": {
     "sequelize-cli": "^6.4.1",
     "standard": "^17.0.0"
-  }, 
-  
-    "name": "my-cool-package",
-    "devDependencies": {
-      "standard": "*"
-    },
-    "scripts": {
-      "test": "standard && node my-tests.js"
-    }
-  
+  }
 }
