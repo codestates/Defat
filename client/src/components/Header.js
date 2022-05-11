@@ -7,11 +7,11 @@ function Header() {
   border-radius: 3px;
   padding: 0.5rem 0;
   margin: 0.5rem 1rem;
-  width: 11rem;
+  width: 5rem;
 `;
   const Img = styled.img`
     width: 16vh;
-    height: 7vh;
+    height: 4vh;
   `
   const Div = styled.div`
     display: flex;
