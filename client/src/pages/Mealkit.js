@@ -1,15 +1,19 @@
 import React from "react"
 import styled from "styled-components"
-
+import MealKitList from '../components/MealKitList'
 const Rowul = styled.ul`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 `
-const Category_name = styled.li`
+const CategoryName = styled.li`
  list-style: none;
  background-color: aqua;
+`
+const TagDiv = styled.div`
+  height: 20px;
+  background-color: gray;
 `
 function Mealkit(){
   return (
@@ -19,12 +23,9 @@ function Mealkit(){
         <button>검색</button>
       </form>
       <div className="category_container">
-       
-       
-      
         <div className="brand">
           <Rowul>
-            <Category_name>브랜드</Category_name>
+            <CategoryName>브랜드</CategoryName>
             <li><a role='button'>푸드어셈블</a></li>
             <li><a role='button'>ASHLEY</a></li>
             <li><a role='button'>프레시지</a></li>
@@ -34,7 +35,7 @@ function Mealkit(){
         </div>
         <div className="kcal">
           <Rowul>
-          <Category_name>칼로리</Category_name>
+          <CategoryName>칼로리</CategoryName>
             <li><a role='button'>200미만</a></li>
             <li><a role='button'>200~300</a></li>
             <li><a role='button'>300~400</a></li>
@@ -44,7 +45,7 @@ function Mealkit(){
         </div>
         <div className="price">
           <Rowul>
-          <Category_name>가격</Category_name>
+          <CategoryName>가격</CategoryName>
             <li><a role='button'>2000원 미만</a></li>
             <li><a role='button'>2000원~3000원</a></li>
             <li><a role='button'>3000원~5000원</a></li>
@@ -52,7 +53,17 @@ function Mealkit(){
             <li><a role='button'>10000원 이상</a></li>
           </Rowul>
         </div>
-       
+      </div>
+      <br></br>
+      <TagDiv>
+        태그 위치
+      </TagDiv>
+      <br></br>
+      <div>
+        <MealKitList />
+        <MealKitList />
+        <MealKitList />
+        <MealKitList />
       </div>
     </div>
   )

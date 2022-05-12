@@ -39,12 +39,7 @@ function Listform () {
         <IMG src="img/logo.png"></IMG>
         <div>상품명</div>
       </Div2> 
-    
-      
-      
     </Div>
-    
-    
   )
 }
 
