@@ -6,9 +6,18 @@ import TodayMeal from './pages/TodayMeal';
 import MyPage from './pages/MyPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
+import styled from 'styled-components';
 
+
+const Div= styled.div`
+  height : auto;
+  min-height: 100%;
+  padding-bottom: 6vw;
+`
 function App() {
   return (
+    <div>
+    <Div>
     <Router>
       <Header />
       <Routes>
@@ -17,8 +26,12 @@ function App() {
         <Route path="/TodayMeal" element={<TodayMeal />} />
         <Route path="/MyPage" element={<MyPage />} />
       </Routes>
-      <Footer />
+      
     </Router>
+    
+    </Div>
+    <Footer />
+    </div>
   );
 }
 

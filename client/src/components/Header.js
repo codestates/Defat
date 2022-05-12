@@ -20,6 +20,10 @@ function Header() {
     align-items: center;
   `
   const ListDiv = styled.div`
+  &:hover{  
+    background-color : skyblue;
+    color : blue
+  }
   background-color: gray;
   flex: auto;
   color: black;
