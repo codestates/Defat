@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate (models) {
       // define association here
+      models.ingredients.hasOne(models.kits, { foreignKey: 'ingredient_id' });
     }
   }
   ingredient.init({
