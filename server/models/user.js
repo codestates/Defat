@@ -11,14 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate (models) {
       // define association here
-      this.hasMany(models.like, {
-        foreignKey: 'user_Id',
-        onDelete: 'CASCADE'
-      })
-      this.hasMany(models.user_meal, {
-        foreignKey: 'user_id',
-        onDelete: 'CASCADE'
-      })
+      models.users.hasOne(models.likes, { foreignKey: 'user_Id' });
+      models.users.hasOne(models.user_meals, { foreignKey: 'user_id' });
+      
     }
   }
   user.init({
