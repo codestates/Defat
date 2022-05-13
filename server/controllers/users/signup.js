@@ -15,9 +15,15 @@ module.exports = async (req, res) => {
   if (userInfo) {
     res.status(409).send('이미 사용중인 아이디 입니다.')
   } else {
-    delete userInfo.dataValues.password
+    const payload = {
+      id: req.body.id,
+      userId: req.body.userId,
+      nickname: req.body.nickname,
+      createdAt: req.body.createdAt,
+      updatedAt: req.body.updatedAt
+    }
 
-    res.cookie('accessToken', generateAccessToken(userInfo.dataValues),
+    res.cookie('accessToken', generateAccessToken(payload),
       { maxAge: 1000 * 60 * 60 * 24 * 7, httpOnly: true })
 
     res.status(201).send({ message: 'ok' })

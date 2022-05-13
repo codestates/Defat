@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const auth = require(`../controllers/users/auth`)
+const login = require(`../controllers/users/login`)
 
 router.post('/login',)
 router.get('/confirm')
