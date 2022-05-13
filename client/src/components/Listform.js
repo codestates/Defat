@@ -1,16 +1,45 @@
 import React from "react";
+import styled from "styled-components";
 
 
+const IMG = styled.img`
+    width: 24vh;
+    height: 24vh;
+`
+
+const Div = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+`
+
+const Div2 =styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+`
 function Listform () {
   return(
-    <div>
-      <img src="img/logo.png"></img>
-      <span>상품명</span>
-      <img src="img/logo.png"></img>
-      <span>상품명</span>
-    </div>
-    
-    
+    <Div>
+      <Div2>
+        <IMG src="img/logo.png"></IMG>
+        <div>상품명</div>
+      </Div2>
+      <Div2>
+        <IMG src="img/logo.png"></IMG>
+        <div>상품명</div>
+      </Div2>
+      <Div2>
+        <IMG src="img/logo.png"></IMG>
+        <div>상품명</div>
+      </Div2>
+      <Div2>
+        <IMG src="img/logo.png"></IMG>
+        <div>상품명</div>
+      </Div2> 
+    </Div>
   )
 }
 

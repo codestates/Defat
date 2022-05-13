@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 
-function Footer(){
-  return (
-      <div>쿠쿠루삥뽕</div>
-  )
+const Footer2 = styled.footer`
+  height: 6vw;
+  position: relative;
+  transform: translateY(-100%);
+  background-color: beige;
+`;
+
+function Footer() {
+  return <Footer2>Footer</Footer2>;
 }
 
-export default Footer
+export default Footer;
