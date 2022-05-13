@@ -23,7 +23,7 @@ module.exports = {
     const token = cookie.split(';')[0].slice(4)
 
     try {
-      return verify(token, process.env.ACCESS_SECRET)
+      return verify(token, $`{process.env.ACCESS_SECRET}`)
     } catch (err) {
       console.log(err)
     }

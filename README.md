@@ -39,3 +39,40 @@
 * [wireframe](https://www.figma.com/file/oGyFyAvHWZBCgW4Ek1k3bu/Untitled?node-id=6%3A277)
 * [Api docs](https://app.gitbook.com/s/GrsY6V9Xbfu5r5lydeo3/)
 * [db schema](https://dbdiagram.io/d/6279aca37f945876b6e65d5e)
+
+# Team Members
+
+<details><summary>김상한</summary>
+
+***
+* Position: Back-End(Team Leader)
+
+
+***
+</details>
+
+<details><summary>박윤신</summary>
+
+***
+* Position: Back-End
+
+***
+</details>
+
+<details><summary>윤선웅</summary>
+
+***
+* Position: Front-End
+
+***
+</details>
+
+<details><summary>박상하</summary>
+
+***
+* Position: Front-End
+
+***
+</details>
+
+
