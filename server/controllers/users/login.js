@@ -13,10 +13,8 @@ module.exports = async (req, res) => {
       throw new Error('아이디 또는 비밀번호가 일치하지않습니다.')
     }
     
-  console.log(userInfo)
   delete userInfo.dataValues.password
   
-
   const accessToken = generateAccessToken(userInfo.dataValues)
   sendAccessToken(res, accessToken)
   
