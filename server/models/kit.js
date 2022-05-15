@@ -11,9 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate (models) {
       // define association here
-      models.kits.hasMany(models.likes, { foreignKey: 'kit_Id' });
-      models.kits.hasMany(models.user_meals, { foreignKey: 'kit_id' });
-      models.kits.belongsTo(models.ingredients, { foreignKey: 'ingredient_id' });
+      models.kit.hasMany(models.like, { foreignKey: 'kit_Id' });
+      models.kit.hasMany(models.user_meal, { foreignKey: 'kit_id' });
+      models.kit.belongsTo(models.ingredient, { foreignKey: 'ingredient_id' });
 
     }
   }
