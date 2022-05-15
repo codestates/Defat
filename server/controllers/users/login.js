@@ -3,23 +3,32 @@ const { generateAccessToken, sendAccessToken } = require('../../middlewares/toke
 
 module.exports = async (req, res) => {
   const userInfo = await user.findOne({
-    where: { userId: req.body.userId }
+    where: { 
+      userId: req.body.userId,
+      password: req.body.password
+    }
   })
-
   try {
     if (!userInfo) {
-      throw new Error('아이디가 존재하지 않습니다.')
+      throw new Error('아이디 또는 비밀번호가 일치하지않습니다.')
     }
-    if (!userInfo.isRight(req.body.password)) {
-      throw new Error('비밀번호가 일치하지 않습니다.')
-    }
+    
+  console.log(userInfo)
+  delete userInfo.dataValues.password
+  
+
+  const accessToken = generateAccessToken(userInfo.dataValues)
+  sendAccessToken(res, accessToken)
+  
+  return res.json({
+    message: '로그인에 성공하였습니다',
+    accessToken,
+    userInfo: userInfo
+  })
   } catch (err) {
     return res.status(403).send({
       message: '로그인에 실패하였습니다.'
     })
   }
-  delete userInfo.dataValues.password
-
-  const accessToken = generateAccessToken(userInfo.dataValues)
-  sendAccessToken(res, accessToken)
+  
 }

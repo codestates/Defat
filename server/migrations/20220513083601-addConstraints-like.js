@@ -34,7 +34,7 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-     await queryInterface.removeConstraint('likes', 'users_likes_id_fk');
-     await queryInterface.removeConstraint('likes', 'kits_likes_id_fk')
+    await queryInterface.removeConstraint('likes', 'users_likes_id_fk');
+    await queryInterface.removeConstraint('likes', 'kits_likes_id_fk')
   }
 };

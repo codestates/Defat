@@ -7,12 +7,12 @@ const cookieParser = require("cookie-parser");
 const express = require("express");
 const app = express();
 
-// const controllers = require("./controllers");
-const authRouter = require('./routes/AuthenticationRouter')
-const mainRouter = require('./routes/MainRouter')
-const mealkitRouter = require('./routes/MealkitRouter')
-const todayMenuRouter = require('./routes/Today_menuRouter')
-const userRouter = require('./routes/UserRouter')
+const controllers = require("./controllers");
+// const authRouter = require('./routes/AuthenticationRouter')
+// const mainRouter = require('./routes/MainRouter')
+// const mealkitRouter = require('./routes/MealkitRouter')
+// const todayMenuRouter = require('./routes/Today_menuRouter')
+// const userRouter = require('./routes/UserRouter')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -25,6 +25,10 @@ app.use(
 );
 
 app.use(cookieParser());
+app.get('/auth', controllers.auth)
+app.post('/signup', controllers.signup)
+app.post('/login', controllers.login);
+app.post('/logout', controllers.logout);
 
 // app.use('/auth', authRouter);
 // app.use('/main', mainRouter);

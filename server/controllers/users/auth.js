@@ -1,5 +1,5 @@
 const { user } = require('../../models')
-const { isAuthorized } = require('../tokenFunctions')
+const { isAuthorized } = require('../../middlewares/tokenFunctions')
 
 module.exports = async (req, res) => {
   const token = isAuthorized(req, res)

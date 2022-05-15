@@ -16,7 +16,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   like.init({
-    user_Id: DataTypes.INTEGER,
+    user_Id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     kit_Id: DataTypes.INTEGER
   }, {
     sequelize,

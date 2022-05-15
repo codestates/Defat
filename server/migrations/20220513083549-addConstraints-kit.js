@@ -8,7 +8,7 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-     await queryInterface.addConstraint('kits', {
+    await queryInterface.addConstraint('kits', {
       fields: ['ingredient_id'],
       type: 'foreign key',
       name: 'kit_ingredient_id_fk',
@@ -28,6 +28,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-     await queryInterface.removeConstraint('kits', 'kit_ingredient_id_fk');
+    await queryInterface.removeConstraint('kits', 'kit_ingredient_id_fk');
   }
 };
