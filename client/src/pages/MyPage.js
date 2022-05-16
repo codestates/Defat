@@ -21,6 +21,7 @@ const RowDiv = styled.div`
 const ContendDiv = styled.div`
   border-bottom: 2px solid gray;
   height: 2rem;
+  text-align: center;
 `
 const FlexEight = styled.div`
   flex: 7 1 auto;
