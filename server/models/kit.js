@@ -27,7 +27,9 @@ module.exports = (sequelize, DataTypes) => {
     ingredient_id: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'kit'
+    modelName: 'kit',
+    createdAt: false,
+    updatedAt: false
   })
   return kit
 }
