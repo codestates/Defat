@@ -7,6 +7,7 @@ import MyPage from './pages/MyPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
 import styled from 'styled-components';
+import Signin from './components/Signin';
 
 
 const Div= styled.div`
@@ -31,6 +32,7 @@ function App() {
         <Route path="/Mealkit" element={<Mealkit />} />
         <Route path="/TodayMeal" element={<TodayMeal />} />
         <Route path="/MyPage" element={<MyPage />} />
+        <Route path="/Signin" element={<Signin />} />
       </Routes>
       </Body>
       

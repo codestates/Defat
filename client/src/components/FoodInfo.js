@@ -24,11 +24,11 @@ const Input =styled.input`
   text-align: end;
   width: 40px;
 `
-function Foodinfo(){
+function Foodinfo({pickFood}){
   return (
     <ContainerDiv>
       <Img src="img/food1.jpeg"></Img>
-      <Div>상품명</Div>
+      <Div>{pickFood}</Div>
       <Div>영양성분</Div>
       <RowDiv>
       <Div>수량: </Div>
