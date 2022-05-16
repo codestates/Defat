@@ -1,18 +1,33 @@
 import React, {useState} from 'react';
-import Modal from 'react-modal';
 import styled from 'styled-components';
 import Foodinfo from './FoodInfo';
-
-
-
+ const ContainerDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid black;
+  background-color: gray;
+`
+ const RowDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+ `
+ const Input = styled.input`
+  margin-right: 5px;
+`
 function AddFood() {
-  const [open, setOpen] = useState(true)
   return (
-    <Modal isOpen={open} onRequestClose={() => setOpen(false)}>
-      <input type='text'></input>
+    <ContainerDiv>
+      <RowDiv>
+      <Input type='text'></Input>
       <button>검색</button>
+      </RowDiv>
       <Foodinfo></Foodinfo>
-    </Modal>
+      <RowDiv>
+      <button>추가하기</button>
+      </RowDiv>
+      </ContainerDiv>
   ) 
 }
 export default AddFood;
