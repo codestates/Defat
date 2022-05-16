@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 const Footer2 = styled.footer`
   height: 6vw;
-  position: relative;
-  transform: translateY(-100%);
-  background-color: beige;
+  position : relative;
+  transform : translateY(-100%);
+  background-color: aliceblue;
 `;
 
 function Footer() {
