@@ -10,7 +10,7 @@ import styled from 'styled-components';
 
 
 const Div= styled.div`
-  height : 50vw;
+  height : 60vw;
   min-height: 100%;
   
 `
