@@ -17,10 +17,11 @@ const RowDiv = styled.div`
 const Input = styled.input`
   margin-right: 5px;
 `;
-function AddFood() {
+function AddFood({addFoods}) {
   const [find, setFind] = useState(false);
   const [inputText, setInputText] = useState('');
   const [chooseFood, setChooseFood] = useState(false); // false는 테스트용, 데이터 받아오면 빈문자열로 세팅
+  const [pickFood, setPickFood] = useState('')
   const handleReport = (event) => {
     event.preventDefault();
     setFind(true);
@@ -33,7 +34,9 @@ function AddFood() {
     setFind(false);
     setChooseFood(true);
   };
-
+  const clickAdd = (food) => {
+    addFoods(food)
+  }
   return (
     <ContainerDiv>
       <RowDiv>
@@ -43,11 +46,11 @@ function AddFood() {
         </form>
       </RowDiv>
       <div onClick={handleChooseFood}>
-      {find === true ? <FoodList /> : null}
+      {find === true ? <FoodList setPickFood={setPickFood} /> : null}
       </div>
-      {chooseFood === true ? <Foodinfo /> : null}
+      {chooseFood === true ? <Foodinfo pickFood={pickFood} /> : null}
       <RowDiv>
-        <button>추가하기</button>
+        <button onClick={() => {clickAdd(pickFood)}}>추가하기</button>
       </RowDiv>
     </ContainerDiv>
   );
