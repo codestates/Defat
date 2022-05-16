@@ -10,28 +10,34 @@ import styled from 'styled-components';
 
 
 const Div= styled.div`
+  height : 50vw;
+  min-height: 100%;
+  
+`
+const Body =styled.div`
   height : auto;
   min-height: 100%;
   padding-bottom: 6vw;
 `
 function App() {
   return (
-    <div>
+    
     <Div>
     <Router>
       <Header />
+      <Body>
       <Routes>
         <Route exact path="/" element={<MainPage />} />
         <Route path="/Mealkit" element={<Mealkit />} />
         <Route path="/TodayMeal" element={<TodayMeal />} />
         <Route path="/MyPage" element={<MyPage />} />
       </Routes>
+      </Body>
       
     </Router>
-    
-    </Div>
     <Footer />
-    </div>
+    </Div>
+    
   );
 }
 
