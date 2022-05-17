@@ -44,59 +44,19 @@ const NameandPrice = styled.div`
   height:50%;
 `
 
-function MealKitList() {
+function MealKitList({list}) {
   return (
     <Ul>
       <Li>
         <MealContainer>
-        <IMG src="img/logo.png"></IMG>
-        <div>상품명</div>
+        <IMG src={list.image}></IMG>
+        <div>{list.kit_name}</div>
         <NameandPrice>
-          <div>제목</div>
-          <div>가격</div>
+          <div>{list.brand}</div>
+          <div>{list.price}</div>
         </NameandPrice>
         </MealContainer>
       </Li>
-      <Li>
-      <MealContainer>
-        <IMG src="img/logo.png"></IMG>
-        <div>상품명</div>
-        <NameandPrice>
-          <div>제목</div>
-          <div>가격</div>
-        </NameandPrice>
-        </MealContainer>
-      </Li>
-      <Li>
-      <MealContainer>
-        <IMG src="img/logo.png"></IMG>
-        <div>상품명</div>
-        <NameandPrice>
-          <div>제목</div>
-          <div>가격</div>
-        </NameandPrice>
-        </MealContainer>
-      </Li>
-      <Li>
-        <MealContainer>
-        <IMG src="img/logo.png"></IMG>
-        <div>상품명</div>
-        <NameandPrice>
-          <div>제목</div>
-          <div>가격</div>
-        </NameandPrice>
-        </MealContainer>
-      </Li>
-      {/* <Li>
-        <MealContainer>
-        <IMG src="img/logo.png"></IMG>
-        <div>상품명</div>
-        <NameandPrice>
-          <div>제목</div>
-          <div>가격</div>
-        </NameandPrice>
-        </MealContainer>
-      </Li> */}
     </Ul>
   );
 }

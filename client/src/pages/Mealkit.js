@@ -1,7 +1,7 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import MealKitList from '../components/MealKitList'
-
+import axios from 'axios'
 const CategoryContainer = styled.div`
     height:100%;
     width: 100%;
@@ -43,6 +43,12 @@ const Tag=styled.div`
 `
 
 function Mealkit(){
+  const [dataList, setDataList] =useState([])
+  useEffect(() => {
+    axios.get("https://localhost:4000/mealkit")
+    .then((resp) => {setDataList(resp.data.data)})
+  },[])
+  console.log(dataList[0]);
   return (
     <div>
         <CategoryContainer>
@@ -88,10 +94,9 @@ function Mealkit(){
         </CategoryContainer>
       
         <div>
-          <MealKitList />
-          <MealKitList />
-          <MealKitList />
-          <MealKitList />
+          {dataList.map((list) => {
+           return <MealKitList list={list}/>
+          })}
         </div>
       </div>
      )

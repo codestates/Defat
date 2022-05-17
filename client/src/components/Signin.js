@@ -68,7 +68,6 @@ function Signin() {
     setPwd('')
     setCheckPwd('')
     //데이터베이스에 유저 정보 보내기.
-    //! 아직구현안됌
   }
   return (
     <ColDiv>
