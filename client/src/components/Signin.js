@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const ColDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -41,7 +43,7 @@ function Signin() {
   const [onNickname, setOnNickname] = useState(true);
   const [onPwd, setOnPwd] = useState(true);
   const [onCheckPwd, setOnCheckPwd] = useState(true);
-
+  const navigate = useNavigate();
   const validId = (event) => {
     setId(event.target.value);
     if (RegExp.test(event.target.value)) {
@@ -65,25 +67,41 @@ function Signin() {
     pwd === event.target.value ? setOnCheckPwd(true) : setOnCheckPwd(false);
   };
   const clickSignUp = () => {
-    setId('');
-    setNickname('');
-    setPwd('');
-    setCheckPwd('');
-    //데이터베이스에 유저 정보 보내기.
+    if (onId && onNickname & onPwd & onCheckPwd) {
+      axios
+        .post('https://localhost:4000/auth/signup', {
+          userId: id,
+          nickname: nickname,
+          password: pwd,
+        })
+        .then((resp) =>
+          resp.data.message === 'ok'
+            ? alert('회원가입 성공')
+            : alert('회원가입 실패')
+        );
+      setId('');
+      setNickname('');
+      setPwd('');
+      setCheckPwd('');
+    } else {
+      alert('정보가 충족되지 않았습니다.');
+    }
   };
+  console.log(id, nickname, pwd);
+
   return (
     <ColDiv>
       <h3>회원가입</h3>
       <RowDiv>
         <div>아이디 :</div>
-        <Input type="text" onChange={validId}></Input>
+        <Input type="text" value={id} onChange={validId}></Input>
         {onId ? null : (
           <MessageDiv>아이디는 영문자, 숫자로 된 4~12 길이입니다.</MessageDiv>
         )}
       </RowDiv>
       <RowDiv>
         <div>닉네임 :</div>
-        <Input type="text" onChange={validNickname}></Input>
+        <Input type="text" value={nickname} onChange={validNickname}></Input>
         {onNickname ? null : (
           <MessageDiv>
             닉네임은 영문자, 한글, 숫자로 된 2~10 길이만 가능합니다
@@ -92,15 +110,19 @@ function Signin() {
       </RowDiv>
       <RowDiv>
         <div>비밀번호 :</div>
-        <Input type="password" onChange={validPwd}></Input>
-        {onPwd ? null : <MessageDiv>비밀번호를 입력하세요</MessageDiv>}
+        <Input type="password" value={pwd} onChange={validPwd}></Input>
+        {onPwd ? null : (
+          <MessageDiv>
+            비밀번호는 영문자, 숫자, 특수문자가 포함된 8자 이상입니다.
+          </MessageDiv>
+        )}
       </RowDiv>
       <RowDiv>
         <div>비밀번호 확인 :</div>
-        <Input type="password" onChange={validCheckPwd}></Input>
+        <Input type="password" value={checkPwd} onChange={validCheckPwd}></Input>
         {onCheckPwd ? null : <MessageDiv>비밀번호가 맞지 않습니다.</MessageDiv>}
       </RowDiv>
-      <ConfirmBtn>가입하기</ConfirmBtn>
+      <ConfirmBtn onClick={clickSignUp}>가입하기</ConfirmBtn>
     </ColDiv>
   );
 }
