@@ -1,3 +1,4 @@
+
 const { user } = require('../../models')
 const { isAuthorized } = require('../../middlewares/tokenFunctions')
 const auth = require('./auth')
@@ -24,6 +25,7 @@ module.exports = {
       console.log(err);
     }
   },
+
   patch : async (req,res) => {
       
     const token = await isAuthorized(req, res)
@@ -66,4 +68,5 @@ module.exports = {
         return res.status(500).json({ message: 'Server Error!' });
       }
     }
+
 }
