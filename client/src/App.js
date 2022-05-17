@@ -8,7 +8,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
 import styled from 'styled-components';
 import Signin from './components/Signin';
-
+//로그인, 회원가입 기능
+// 1. 유효성 검사 2. 로그인 여부에 따라 메세지 띄워주기
+// MealKitList 태그 추가 기능
+//오늘의 식단 수량 추가 기능
+// 키/몸무게로 기초대사량 구하는 알고리즘
 
 const Div= styled.div`
   height : 60vw;

@@ -87,7 +87,7 @@ function MealKitList() {
         </NameandPrice>
         </MealContainer>
       </Li>
-      <Li>
+      {/* <Li>
         <MealContainer>
         <IMG src="img/logo.png"></IMG>
         <div>상품명</div>
@@ -96,7 +96,7 @@ function MealKitList() {
           <div>가격</div>
         </NameandPrice>
         </MealContainer>
-      </Li>
+      </Li> */}
     </Ul>
   );
 }
