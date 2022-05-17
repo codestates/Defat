@@ -3,10 +3,9 @@ const { kit } = require('../../models');
 module.exports = {
   
     get : async (req,res) => {
-    
-    
-    const kitInfo = await kit.findAll()
 
+    const kitInfo = await kit.findAll()
+    
     if (!kitInfo) {
         res.status(404).send({message : '정보 없음'})
     } else {

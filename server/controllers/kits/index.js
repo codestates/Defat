@@ -1,4 +1,3 @@
-
 module.exports = {
     find: require('./find'),
     information: require('./information'),
