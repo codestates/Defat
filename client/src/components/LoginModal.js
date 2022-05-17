@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
+
+
+
+
+
+
 
   const RowDiv = styled.div`
     margin: 5px;
@@ -75,9 +82,26 @@ import { Link } from 'react-router-dom';
     width: 60%;
   `;
 
-function LoginModal() {
+function LoginModal({handleLoginSuccess}) {
   const [open, setOpen] = useState(true);
-
+  const [loginInfo,setLoginInfo] = useState({
+    id:'',
+    password:''
+})
+ const [errMessage,setErrMessage]=useState('')
+  const handleLoginInfo=(key)=>(e)=>{
+    setLoginInfo({...loginInfo,[key]:e.target.value})
+  }
+  const handleLogin = (e)=>{
+    if(!loginInfo.id||!loginInfo.password){
+      setErrMessage('잘못된 정보입니다')
+    } else{
+      axios.post('https://localhost:3000/signin',loginInfo)
+      .then(()=>handleLoginSuccess())
+    }
+  }
+    
+  
   return (
     <Modal
       isOpen={open}
@@ -118,8 +142,8 @@ function LoginModal() {
           </ColumnDiv>
 
           <ColumnDiv>
-            <Input type="text" placeholder="아이디를 입력하세요"></Input>
-            <Input type="password"></Input>
+            <Input type="text" placeholder="아이디를 입력하세요" onChage={handleLoginInfo('id')}></Input>
+            <Input type="password" onChage={handleLoginInfo('password')}></Input>
           </ColumnDiv>
         </RowDiv>
 
@@ -130,7 +154,7 @@ function LoginModal() {
           </RowDiv>
           <A>아이디/비밀번호 찾기</A>
         </RowDiv>
-        <OauthLogin primary="0">로그인</OauthLogin>
+        <OauthLogin primary="0" onClick={handleLogin}>로그인</OauthLogin>
         <OauthLogin primary="1">카카오톡 로그인</OauthLogin>
         <OauthLogin primary="2">네이버 로그인</OauthLogin>
         <OauthLogin>구글 로그인</OauthLogin>

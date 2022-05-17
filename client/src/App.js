@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import Header from './components/Header';
 import MainPage from './pages/MainPage';
 import Mealkit from './pages/Mealkit';
@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
 import styled from 'styled-components';
 import Signin from './components/Signin';
+import axios from 'axios'
 //로그인, 회원가입 기능
 // 1. 유효성 검사 2. 로그인 여부에 따라 메세지 띄워주기
 // MealKitList 태그 추가 기능
@@ -25,11 +26,18 @@ const Body =styled.div`
   padding-bottom: 6vw;
 `
 function App() {
+  const [isLogin,setIsLogin] = useState(false)
+  const [userInfo,setuserInfo] = useState(null)
+  const handleLoginSuccess=()=>{
+    setIsLogin(true)
+    console.log('되네')
+  }
+  
   return (
     
     <Div>
     <Router>
-      <Header />
+      <Header handleLoginSuccess={handleLoginSuccess} />
       <Body>
       <Routes>
         <Route exact path="/" element={<MainPage />} />
