@@ -23,7 +23,7 @@ function AddFood({addFoods}) {
   const [inputText, setInputText] = useState('');
   const [chooseFood, setChooseFood] = useState(false); // false는 테스트용, 데이터 받아오면 빈문자열로 세팅
   const [pickFood, setPickFood] = useState('')
-  const [quantity, setQuantity] = useState(0)
+  const [quantity, setQuantity] = useState(1)
   const handleReport = (event) => {
     event.preventDefault();
     setFind(true);

@@ -27,6 +27,7 @@ const PushMealBar = styled.div`
   font-size: 20px;
   background-color: bisque;
   width: 45vw;
+  cursor : pointer;
 `;
 const TodayTotal = styled.div`
   padding-left: 50px;
@@ -61,31 +62,53 @@ function TodayMeal() {
     setOpenModal(!openModal);
     setModalNum(num);
   };
-  const removeFood = (food) => {
-    console.log(food);
+  const removeFood = (idx) => {
     if (modalNum === 1) {
-      morning.splice(food,1)
+      morning.splice(idx,1)
       setMorning([...morning]);
     }
     if (modalNum === 2) {
-      lunch.splice(food,1)
-      setLunch([...lunch, food]);
+      lunch.splice(idx,1)
+      setLunch([...lunch]);
     }
     if (modalNum === 3) {
-      dinner.splice(food,1)
-      setDinner([...dinner, food]);
+      dinner.splice(idx,1)
+      setDinner([...dinner]);
     }
   };
+
   const addFoods = (food) => {
+    if(food.name === '') return
     if (modalNum === 1) {
-      setMorning([...morning, food]);
+      for(let i=0; i < morning.length; i++) {
+        if(morning[i].name === food.name) {
+          console.log('실행');
+          morning[i].quantity += food.quantity
+          setMorning([...morning])
+          return;
+        }
+      }
+      setMorning([...morning, food])
     }
     if (modalNum === 2) {
-      setLunch([...lunch, food]);
+        for(let i=0; i < lunch.length; i++) {
+          if(lunch[i].name === food.name) {
+            lunch[i].quantity += food.quantity
+            setLunch([...lunch])
+            return;
+          }
+        }
+        setLunch([...lunch, food])
     }
     if (modalNum === 3) {
-      setDinner([...dinner, food]);
-
+        for(let i=0; i < dinner.length; i++) {
+          if(dinner[i].name === food.name) {
+            dinner[i].quantity += food.quantity
+            setDinner([...dinner])
+            return
+          }
+        }
+        setDinner([...dinner, food])
     }
   };
   console.log(morning);
@@ -106,9 +129,9 @@ function TodayMeal() {
             {openModal && modalNum === 1 ? (
               <AddFood addFoods={addFoods} />
             ) : null}
-            {morning.map((food, idx) => (
+            {morning.length ===0? null:morning.map((food, idx) => (
               <FoodList key={idx}>
-                <div>{food.name}</div>
+                <div>{food.name} 수량 {food.quantity}</div>
                 <div onClick={() => removeFood(idx)}>X</div>
               </FoodList>
             ))}
@@ -122,7 +145,7 @@ function TodayMeal() {
             {openModal && modalNum === 2 ? (
               <AddFood addFoods={addFoods} />
             ) : null}
-            {lunch.map((food, idx) => (
+            {lunch.length===0? null:lunch.map((food, idx) => (
               <FoodList key={idx}>
                 <div>{food.name} 수량 {food.quantity}</div>
                 <div onClick={() => removeFood(idx)}>X</div>
@@ -138,9 +161,9 @@ function TodayMeal() {
             {openModal && modalNum === 3 ? (
               <AddFood addFoods={addFoods} />
             ) : null}
-            {dinner.map((food, idx) => (
+            {dinner.length===0?null:dinner.map((food, idx) => (
               <FoodList key={idx}>
-                <div>{food.name}</div>
+                <div>{food.name} 수량 {food.quantity}</div>
                 <div onClick={() => removeFood(idx)}>X</div>
               </FoodList>
             ))}

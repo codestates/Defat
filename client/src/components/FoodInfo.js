@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 
@@ -27,7 +27,7 @@ const Input =styled.input`
 
 function Foodinfo({pickFood, setQuantity}){
   const handleQuantityChange = (e) => {
-    setQuantity(e.target.value)
+    setQuantity(Number(e.target.value))
   }
   return (
     <ContainerDiv>
