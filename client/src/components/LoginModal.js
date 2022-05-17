@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 
+axios.defaults.withCredentials = true;
 
 
 
@@ -96,7 +97,7 @@ function LoginModal({handleLoginSuccess}) {
     if(!loginInfo.id||!loginInfo.password){
       setErrMessage('잘못된 정보입니다')
     } else{
-      axios.post('https://localhost:3000/signin',loginInfo)
+      axios.post('https://localhost:4000/login',loginInfo)
       .then(()=>handleLoginSuccess())
     }
   }
@@ -142,8 +143,8 @@ function LoginModal({handleLoginSuccess}) {
           </ColumnDiv>
 
           <ColumnDiv>
-            <Input type="text" placeholder="아이디를 입력하세요" onChage={handleLoginInfo('id')}></Input>
-            <Input type="password" onChage={handleLoginInfo('password')}></Input>
+            <Input type="text" placeholder="아이디를 입력하세요" onChange={handleLoginInfo('id')}></Input>
+            <Input type="password" onChange={handleLoginInfo('password')}></Input>
           </ColumnDiv>
         </RowDiv>
 
