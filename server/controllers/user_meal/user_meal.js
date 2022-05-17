@@ -1,4 +1,4 @@
-const {user_meal , kit} = require('../../models')
+const { user_meal , kit } = require('../../models')
 
 module.exports = {
   get : async (req, res) => {
