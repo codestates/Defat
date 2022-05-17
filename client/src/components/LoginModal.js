@@ -86,7 +86,7 @@ axios.defaults.withCredentials = true;
 function LoginModal({handleLoginSuccess}) {
   const [open, setOpen] = useState(true);
   const [loginInfo,setLoginInfo] = useState({
-    id:'',
+    userId:'',
     password:''
 })
  const [errMessage,setErrMessage]=useState('')
@@ -94,10 +94,10 @@ function LoginModal({handleLoginSuccess}) {
     setLoginInfo({...loginInfo,[key]:e.target.value})
   }
   const handleLogin = (e)=>{
-    if(!loginInfo.id||!loginInfo.password){
+    if(!loginInfo.userId||!loginInfo.password){
       setErrMessage('잘못된 정보입니다')
     } else{
-      axios.post('https://localhost:4000/login',loginInfo)
+      axios.post('https://localhost:4000/auth/login',loginInfo)
       .then(()=>handleLoginSuccess())
     }
   }
@@ -143,7 +143,7 @@ function LoginModal({handleLoginSuccess}) {
           </ColumnDiv>
 
           <ColumnDiv>
-            <Input type="text" placeholder="아이디를 입력하세요" onChange={handleLoginInfo('id')}></Input>
+            <Input type="text" placeholder="아이디를 입력하세요" onChange={handleLoginInfo('userId')}></Input>
             <Input type="password" onChange={handleLoginInfo('password')}></Input>
           </ColumnDiv>
         </RowDiv>

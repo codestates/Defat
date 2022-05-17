@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -15,32 +16,35 @@ const RowDiv = styled.div`
   width: 80vw;
 `;
 const ConfirmBtn = styled.button`
-align-self: flex-end;
-margin: 20px;
-margin-top: 50px;
-`
+  align-self: flex-end;
+  margin: 20px;
+  margin-top: 50px;
+`;
 const Input = styled.input`
-margin-left: 15px;
-`
+  margin-left: 15px;
+`;
 
 function Mypage2() {
-  const [id, setId] = useState('')
-  const [pwd, setPwd] = useState('')
-  const [checkPwd, setCheckPwd] = useState('')
+  const [id, setId] = useState('');
+  const [pwd, setPwd] = useState('');
+  const [checkPwd, setCheckPwd] = useState('');
 
   const handleChangeId = (e) => {
-    setId(e.target.value)
-  }
+    setId(e.target.value);
+  };
   const handleChangePwd = (e) => {
-    setPwd(e.target.value)
-  }
+    setPwd(e.target.value);
+  };
   const handleChangeCheckPwd = (e) => {
-    setCheckPwd(e.target.value)
-  }
-  
+    setCheckPwd(e.target.value);
+  };
+  const withdrawal = () => {
+    axios.delete(`https://localhost:4000/mypage:${id}`)
+    .then((resp) => alert('탈퇴 성공'))
+  };
   return (
     <ColDiv>
-    <h3>회원탈퇴</h3>
+      <h3>회원탈퇴</h3>
       <RowDiv>
         <div>아이디 :</div>
         <Input type="text" onChange={handleChangeId}></Input>
@@ -53,7 +57,7 @@ function Mypage2() {
         <div>비밀번호 확인 :</div>
         <Input type="password" onChange={handleChangeCheckPwd}></Input>
       </RowDiv>
-      <ConfirmBtn>탈퇴하기</ConfirmBtn>
+      <ConfirmBtn onClick={withdrawal}>탈퇴하기</ConfirmBtn>
     </ColDiv>
   );
 }
