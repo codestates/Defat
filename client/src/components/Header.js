@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginModal from './LoginModal';
-function Header() {
+function Header({handleLoginSuccess}) {
   const Button = styled.button`
     display: inline-block;
     border-radius: 3px;
@@ -43,7 +43,7 @@ function Header() {
           <Img src="img/logo2.png" />
         </Link>
         <Button onClick={clickButton}>로그인</Button>
-        {isOpen === true? <LoginModal />:null}
+        {isOpen === true? <LoginModal handleLoginSuccess={handleLoginSuccess}/>:null}
       </Div>
       <Div>
         <Link to="/Mealkit">

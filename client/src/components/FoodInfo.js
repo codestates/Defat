@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 
@@ -24,7 +24,11 @@ const Input =styled.input`
   text-align: end;
   width: 40px;
 `
-function Foodinfo({pickFood}){
+
+function Foodinfo({pickFood, setQuantity}){
+  const handleQuantityChange = (e) => {
+    setQuantity(Number(e.target.value))
+  }
   return (
     <ContainerDiv>
       <Img src="img/food1.jpeg"></Img>
@@ -32,7 +36,7 @@ function Foodinfo({pickFood}){
       <Div>영양성분</Div>
       <RowDiv>
       <Div>수량: </Div>
-      <Input min={1} defaultValue={1} type='number'></Input>
+      <Input min={0} defaultValue={1} type='number' onChange={handleQuantityChange}></Input>
       </RowDiv>
     </ContainerDiv>
 

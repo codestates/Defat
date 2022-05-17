@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-const IMG = styled.img`
+const Img = styled.img`
   align-items: center;
-  width: 8vh;
-  height: 8vh;
+  width: 16vh;
+  height: 16vh;
+  margin: 20px 0px;
 `;
 
 const Ul = styled.ul`
@@ -15,19 +16,23 @@ const Ul = styled.ul`
     margin-inline-end: 0px;
     padding-inline-start: 40px;
 `;
-
+const Div = styled.div`
+  padding: 0;
+  margin-top:15px;
+  font-weight: ${(props) => props.bold? 'bold':null};
+`
 const Li = styled.li`
     position: relative;
     display: inline-block;
-    height:400px;
-    width: 280px;
+    height:100%;
+    width: 27vw;
     margin: 0 30px 30px 0;
     list-style: none;
     vertical-align: top;
+    border: 2px solid black;
 `;
 
 const MealContainer = styled.div`
-  padding:5%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -39,64 +44,27 @@ const NameandPrice = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 125px;
+  margin: 60px 0 30px 0;
   width:80%;
   height:50%;
 `
 
-function MealKitList() {
+function MealKitList({dataList}) {
   return (
     <Ul>
-      <Li>
+      {dataList.map((list) => {
+        return  <Li>
         <MealContainer>
-        <IMG src="img/logo.png"></IMG>
-        <div>상품명</div>
+        <Img src={list.image}></Img>
+        <Div bold={true}>{list.kit_name}</Div>
+        <Div>{list.kcal}kcal</Div>
         <NameandPrice>
-          <div>제목</div>
-          <div>가격</div>
+          <Div>{list.brand}</Div>
+          <Div>{list.price}원</Div>
         </NameandPrice>
         </MealContainer>
       </Li>
-      <Li>
-      <MealContainer>
-        <IMG src="img/logo.png"></IMG>
-        <div>상품명</div>
-        <NameandPrice>
-          <div>제목</div>
-          <div>가격</div>
-        </NameandPrice>
-        </MealContainer>
-      </Li>
-      <Li>
-      <MealContainer>
-        <IMG src="img/logo.png"></IMG>
-        <div>상품명</div>
-        <NameandPrice>
-          <div>제목</div>
-          <div>가격</div>
-        </NameandPrice>
-        </MealContainer>
-      </Li>
-      <Li>
-        <MealContainer>
-        <IMG src="img/logo.png"></IMG>
-        <div>상품명</div>
-        <NameandPrice>
-          <div>제목</div>
-          <div>가격</div>
-        </NameandPrice>
-        </MealContainer>
-      </Li>
-      <Li>
-        <MealContainer>
-        <IMG src="img/logo.png"></IMG>
-        <div>상품명</div>
-        <NameandPrice>
-          <div>제목</div>
-          <div>가격</div>
-        </NameandPrice>
-        </MealContainer>
-      </Li>
+      })}
     </Ul>
   );
 }
