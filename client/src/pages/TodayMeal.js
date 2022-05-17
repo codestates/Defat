@@ -46,6 +46,7 @@ const H2 = styled.h2`
   justify-self: center;
   text-align: center;
 `
+
 function TodayMeal() {
   const [openModal, setOpenModal] = useState(false);
   const [modalNum, setModalNum] = useState(0);
@@ -76,9 +77,16 @@ function TodayMeal() {
     }
   };
   const addFoods = (food) => {
-    if (modalNum === 1) setMorning([...morning, food]);
-    if (modalNum === 2) setLunch([...lunch, food]);
-    if (modalNum === 3) setDinner([...dinner, food]);
+    if (modalNum === 1) {
+      setMorning([...morning, food]);
+    }
+    if (modalNum === 2) {
+      setLunch([...lunch, food]);
+    }
+    if (modalNum === 3) {
+      setDinner([...dinner, food]);
+
+    }
   };
   console.log(morning);
   return (
@@ -100,7 +108,7 @@ function TodayMeal() {
             ) : null}
             {morning.map((food, idx) => (
               <FoodList key={idx}>
-                <div>{food}</div>
+                <div>{food.name}</div>
                 <div onClick={() => removeFood(idx)}>X</div>
               </FoodList>
             ))}
@@ -116,7 +124,7 @@ function TodayMeal() {
             ) : null}
             {lunch.map((food, idx) => (
               <FoodList key={idx}>
-                <div>{food}</div>
+                <div>{food.name} 수량 {food.quantity}</div>
                 <div onClick={() => removeFood(idx)}>X</div>
               </FoodList>
             ))}
@@ -132,7 +140,7 @@ function TodayMeal() {
             ) : null}
             {dinner.map((food, idx) => (
               <FoodList key={idx}>
-                <div>{food}</div>
+                <div>{food.name}</div>
                 <div onClick={() => removeFood(idx)}>X</div>
               </FoodList>
             ))}
