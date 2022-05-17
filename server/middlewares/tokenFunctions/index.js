@@ -16,6 +16,7 @@ module.exports = {
   },
   isAuthorized: (req, res) => {
     const cookie = req.headers.cookie
+    
     if (!cookie) {
       return null
     }
