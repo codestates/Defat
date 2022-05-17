@@ -1,4 +1,4 @@
-const { isAuthorized } = require('../tokenFunction');
+const { isAuthorized } = require('../../middlewares/tokenFunctions')
 const { user } = require('../../models');
 
 module.exports = {
@@ -13,8 +13,8 @@ module.exports = {
       if(!accessTokenData) return false;
       
       // accessToken에 담긴 정보가 유효한 정보인지 판별
-      const { email } = accessTokenData;
-      const userInfo = await user.findOne({ where: { email: email }});
+      const { userId } = accessTokenData;
+      const userInfo = await user.findOne({ where: { userId: userId }});
       if(!userInfo) return false;
 
       // accessToken이 유효하고 사용자 정보가 올바른 경우 사용자 정보 리턴
@@ -24,4 +24,3 @@ module.exports = {
     }
   }
 };
-
