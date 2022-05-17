@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate (models) {
       // define association here
-      models.user_meal.belongsTo(models.users, { foreignKey: 'user_id' });
-      models.user_meal.belongsTo(models.kits, { foreignKey: 'kit_id' });
+      models.user_meal.belongsTo(models.user, { foreignKey: 'user_id' });
+      models.user_meal.belongsTo(models.kit, { foreignKey: 'kit_id' });
     }
   }
   user_meal.init({
