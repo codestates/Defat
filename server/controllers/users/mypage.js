@@ -1,3 +1,4 @@
+
 const { user } = require('../../models')
 const { auth } = require('./auth')
 
@@ -56,4 +57,5 @@ module.exports = {
         return res.status(500).json({ message: 'Server Error!' });
       }
     }
+
 }
