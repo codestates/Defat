@@ -43,7 +43,6 @@ function Signin() {
   const [onNickname, setOnNickname] = useState(true);
   const [onPwd, setOnPwd] = useState(true);
   const [onCheckPwd, setOnCheckPwd] = useState(true);
-  const navigate = useNavigate();
   const validId = (event) => {
     setId(event.target.value);
     if (RegExp.test(event.target.value)) {
