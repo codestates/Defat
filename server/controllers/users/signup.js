@@ -31,6 +31,6 @@ module.exports = async (req, res) => {
     res.cookie('accessToken', generateAccessToken(payload),
       { maxAge: 1000 * 60 * 60 * 24 * 7, httpOnly: true })
 
-    res.status(201).send({ message: 'ok' })
+    res.status(200).send({ message: 'ok' })
   }
 }

@@ -14,6 +14,15 @@ module.exports = {
       kit_id: {
         type: Sequelize.INTEGER
       },
+      breakfast: {
+        type: Sequelize.STRING
+      },
+      lunch: {
+        type: Sequelize.STRING
+      },
+      dinner: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -17,7 +17,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   user_meal.init({
     user_id: DataTypes.INTEGER,
-    kit_id: DataTypes.INTEGER
+    kit_id: DataTypes.INTEGER,
+    breakfast: DataTypes.STRING,
+    lunch: DataTypes.STRING,
+    dinner: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'user_meal'
