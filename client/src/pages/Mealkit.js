@@ -65,7 +65,7 @@ function Mealkit() {
         setDataList(resp.data.data)
       })
     }
-    axios.get(`https://localhost:4000/mealkit/${searchInput}`)
+    axios.get(`https://localhost:4000/mealkit/find/${searchInput}`)
     .then((resp) => setDataList(resp.data.data))
     setSearchInput('')
   }
@@ -78,7 +78,7 @@ function Mealkit() {
           <button>검색</button>
           </form>
         </CategoryRow>
-        <CategoryRow>
+        {/* <CategoryRow>
           <Category>브랜드</Category>
 
           <CategoryRow>
@@ -108,7 +108,7 @@ function Mealkit() {
             <CategoryMenu>400~500kcal</CategoryMenu>
             <CategoryMenu>500~600kcal</CategoryMenu>
           </CategoryRow>
-        </CategoryRow>
+        </CategoryRow> */}
         <TagContainer></TagContainer>
       </CategoryContainer>
       <div><MealKitList dataList={dataList} />
