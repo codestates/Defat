@@ -34,16 +34,19 @@ function AddFood({ addFoods }) {
       });
     } else {
       axios
-        .get(`https://localhost:4000/mealkit/${inputText}`)
-        .then((resp) =>
+        .get(`https://localhost:4000/mealkit/find/${inputText}`)
+        .then((resp) => {
+          console.log(resp.data.data);
           resp.data.data.length === 0
             ? alert('검색결과가 없습니다')
             : setSearchList(resp.data.data)
+        }
         );
     }
     setFind(true);
     setChooseFood(false);
   };
+  console.log(inputText);
   const handleChangeInput = (event) => {
     setInputText(event.target.value);
   };

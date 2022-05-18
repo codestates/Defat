@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginModal from './LoginModal';
+<<<<<<< HEAD
 import axios from 'axios'
 function Header({handleLoginSuccess,isLogin,setuserInfo,userInfo,setIsLogin}) {
+=======
+import axios from 'axios';
+function Header({ handleLoginSuccess, isLogin, setuserInfo, userInfo }) {
+>>>>>>> aa3e38732cb9e27d95b382de871145dec264dad6
   const Button = styled.button`
     display: inline-block;
     border-radius: 3px;
@@ -33,13 +38,7 @@ function Header({handleLoginSuccess,isLogin,setuserInfo,userInfo,setIsLogin}) {
     width: 33vw;
     padding: 10px;
   `;
-  const LoginCompleteDiv = styled.div`
-    
-  `
-  
-  const [isOpen, setIsOpen] = useState(false)
-  const clickButton = () => {
-    setIsOpen(!isOpen)
+  const LoginCompleteDiv = styled.div``;
 
   }
   const logoutButton = () =>{
