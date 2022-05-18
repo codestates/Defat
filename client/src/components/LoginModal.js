@@ -82,8 +82,9 @@ axios.defaults.withCredentials = true;
     padding: 5px;
     width: 60%;
   `;
+  
 
-function LoginModal({handleLoginSuccess}) {
+function LoginModal({handleLoginSuccess,setuserInfo,setIsopen}) {
   const [open, setOpen] = useState(true);
   const [loginInfo,setLoginInfo] = useState({
     userId:'',
@@ -99,6 +100,11 @@ function LoginModal({handleLoginSuccess}) {
     } else{
       axios.post('https://localhost:4000/auth/login',loginInfo)
       .then(()=>handleLoginSuccess())
+      .then(()=>{return axios.get(`https://localhost:4000/user/mypage/${loginInfo.userId}`)})
+      .then((res)=>setuserInfo(res.data.data.userInfo))    
+      .then(()=>setOpen(false))
+      .then(()=>setIsopen(false))
+     
     }
   }
     
@@ -160,7 +166,7 @@ function LoginModal({handleLoginSuccess}) {
         <OauthLogin primary="2">네이버 로그인</OauthLogin>
         <OauthLogin>구글 로그인</OauthLogin>
         <Link to="/signin">
-          <Signupbutton onClick={() => setOpen(false)}>회원가입</Signupbutton>
+          {<Signupbutton onClick={() => setOpen(false)}>회원가입</Signupbutton>}
         </Link>
       </ColumnDiv>
     </Modal>

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginModal from './LoginModal';
-function Header({handleLoginSuccess}) {
+import axios from 'axios'
+function Header({handleLoginSuccess,isLogin,setuserInfo,userInfo}) {
   const Button = styled.button`
     display: inline-block;
     border-radius: 3px;
@@ -32,18 +33,31 @@ function Header({handleLoginSuccess}) {
     width: 33vw;
     padding: 10px;
   `;
+  const LoginCompleteDiv = styled.div`
+    
+  `
+  
   const [isOpen, setIsOpen] = useState(false)
   const clickButton = () => {
     setIsOpen(!isOpen)
+
   }
+  const logoutButton = () =>{
+   
+    
+  }
+  console.log(userInfo)
   return (
     <div>
       <Div>
         <Link to="/">
           <Img src="img/logo2.png" />
         </Link>
-        <Button onClick={clickButton}>로그인</Button>
-        {isOpen === true? <LoginModal handleLoginSuccess={handleLoginSuccess}/>:null}
+        {isLogin ?<div>
+          <LoginCompleteDiv>어서오시게  님 <button onClick={logoutButton}>로그아웃</button></LoginCompleteDiv>
+          
+          </div>:<Button onClick={clickButton}>로그인</Button>}
+         {isOpen? <LoginModal handleLoginSuccess={handleLoginSuccess} setuserInfo={setuserInfo} setIsOpen={setIsOpen} isOpen={isOpen}/>:null}
       </Div>
       <Div>
         <Link to="/Mealkit">

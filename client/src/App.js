@@ -30,6 +30,7 @@ function App() {
   const [userInfo,setuserInfo] = useState(null)
   const handleLoginSuccess=()=>{
     setIsLogin(true)
+    
     console.log('되네')
   }
   
@@ -37,7 +38,7 @@ function App() {
     
     <Div>
     <Router>
-      <Header handleLoginSuccess={handleLoginSuccess} />
+      <Header handleLoginSuccess={handleLoginSuccess} setuserInfo={setuserInfo} isLogin={isLogin} userInfo={userInfo}/>
       <Body>
       <Routes>
         <Route exact path="/" element={<MainPage />} />
