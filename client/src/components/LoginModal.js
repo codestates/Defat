@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
+
+axios.defaults.withCredentials = true;
+
+
+
+
+
 
   const RowDiv = styled.div`
     margin: 5px;
@@ -74,10 +82,33 @@ import { Link } from 'react-router-dom';
     padding: 5px;
     width: 60%;
   `;
+  
 
-function LoginModal() {
+function LoginModal({handleLoginSuccess,setuserInfo,setIsopen}) {
   const [open, setOpen] = useState(true);
-
+  const [loginInfo,setLoginInfo] = useState({
+    userId:'',
+    password:''
+})
+ const [errMessage,setErrMessage]=useState('')
+  const handleLoginInfo=(key)=>(e)=>{
+    setLoginInfo({...loginInfo,[key]:e.target.value})
+  }
+  const handleLogin = (e)=>{
+    if(!loginInfo.userId||!loginInfo.password){
+      setErrMessage('잘못된 정보입니다')
+    } else{
+      axios.post('https://localhost:4000/auth/login',loginInfo)
+      .then(()=>handleLoginSuccess())
+      .then(()=>{return axios.get(`https://localhost:4000/user/mypage/${loginInfo.userId}`)})
+      .then((res)=>setuserInfo(res.data.data.userInfo))    
+      .then(()=>setOpen(false))
+      .then(()=>setIsopen(false))
+     
+    }
+  }
+    
+  
   return (
     <Modal
       isOpen={open}
@@ -118,8 +149,8 @@ function LoginModal() {
           </ColumnDiv>
 
           <ColumnDiv>
-            <Input type="text" placeholder="아이디를 입력하세요"></Input>
-            <Input type="password"></Input>
+            <Input type="text" placeholder="아이디를 입력하세요" onChange={handleLoginInfo('userId')}></Input>
+            <Input type="password" onChange={handleLoginInfo('password')}></Input>
           </ColumnDiv>
         </RowDiv>
 
@@ -130,12 +161,12 @@ function LoginModal() {
           </RowDiv>
           <A>아이디/비밀번호 찾기</A>
         </RowDiv>
-        <OauthLogin primary="0">로그인</OauthLogin>
+        <OauthLogin primary="0" onClick={handleLogin}>로그인</OauthLogin>
         <OauthLogin primary="1">카카오톡 로그인</OauthLogin>
         <OauthLogin primary="2">네이버 로그인</OauthLogin>
         <OauthLogin>구글 로그인</OauthLogin>
         <Link to="/signin">
-          <Signupbutton onClick={() => setOpen(false)}>회원가입</Signupbutton>
+          {<Signupbutton onClick={() => setOpen(false)}>회원가입</Signupbutton>}
         </Link>
       </ColumnDiv>
     </Modal>

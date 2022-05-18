@@ -30,7 +30,7 @@ const MessageDiv = styled.div`
 `;
 const RegExp = /^[a-zA-Z0-9]{4,12}$/;
 const nicknameRegExp = /^[가-힣a-zA-Z0-9]{2,10}$/;
-const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/
 
 function Signin() {
   const [id, setId] = useState('');
@@ -52,17 +52,15 @@ function Signin() {
   };
   const validNickname = (event) => {
     setNickname(event.target.value);
-    nicknameRegExp.test(event.target.value)
-      ? setOnNickname(true)
-      : setOnNickname(false);
+    nicknameRegExp.test(event.target.value)? setOnNickname(true):setOnNickname(false);
   };
   const validPwd = (event) => {
-    setPwd(event.target.value);
-    passwordRegex.test(event.target.value) ? setOnPwd(true) : setOnPwd(false);
+    setPwd(event.target.value)
+    passwordRegex.test(event.target.value)? setOnPwd(true):setOnPwd(false)
   };
   const validCheckPwd = (event) => {
-    setCheckPwd(event.target.value);
-    pwd === event.target.value ? setOnCheckPwd(true) : setOnCheckPwd(false);
+    setCheckPwd(event.target.value)
+    pwd === event.target.value? setOnCheckPwd(true):setOnCheckPwd(false)
   };
   const clickSignUp = () => {
     if (onId && onNickname & onPwd & onCheckPwd) {

@@ -19,14 +19,11 @@ module.exports = async (req, res) => {
   sendAccessToken(res, accessToken)
   
   return res.json({
-    message: '로그인에 성공하였습니다',
-    accessToken,
-    userInfo: userInfo
+    data: { userInfo : userInfo },
+    message: '로그인에 성공하였습니다'
   })
   } catch (err) {
-    return res.status(403).send({
-      message: '로그인에 실패하였습니다.'
-    })
+    return res.status(403).send({ message: '로그인에 실패하였습니다.' })
   }
   
 }

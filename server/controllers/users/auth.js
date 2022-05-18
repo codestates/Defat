@@ -1,22 +1,26 @@
-const { user } = require('../../models')
 const { isAuthorized } = require('../../middlewares/tokenFunctions')
+const { user } = require('../../models');
 
-module.exports = async (req, res) => {
-  const token = isAuthorized(req, res)
+module.exports = {
+  userAuth: async (req, res) => {
+    try {    
+      // 쿠키에 accessToken이 있는지 판별
+      const { accessToken } = req.cookies;
+      if(!accessToken) return false;
+      
+      // accessToken이 유효한 토큰인지 판별
+      const accessTokenData = isAuthorized(accessToken);
+      if(!accessTokenData) return false;
+      
+      // accessToken에 담긴 정보가 유효한 정보인지 판별
+      const { userId } = accessTokenData;
+      const userInfo = await user.findOne({ where: { userId: userId }});
+      if(!userInfo) return false;
 
-  try {
-    if (!token) {
-      return res.status(401).send({ success: false, message: '권한 없음' })
-    } else {
-      const userInfo = await user.findOne({
-        where: { userId: token.userId }
-      })
-
-      delete userInfo.dataValues.password
-
-      res.status(200).send({ data: { userInfo }, message: '존재하는 아이디' })
+      // accessToken이 유효하고 사용자 정보가 올바른 경우 사용자 정보 리턴
+      return userInfo;
+    } catch (err) {
+      return res.status(500).json({ message: 'Server Error!' });
     }
-  } catch (err) {
-    console.log(err)
   }
-}
+};

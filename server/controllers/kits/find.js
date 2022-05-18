@@ -29,6 +29,5 @@ module.exports = {
         message : '검색 실패'
       })
     }
-
   }
 }

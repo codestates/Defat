@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["https://localhost:3000"],
     credentials: true,
     methods: ["GET", "POST", "OPTIONS", "PATCH", "DELETE"],
   })
@@ -25,11 +25,19 @@ app.use(
 
 app.use(cookieParser());
 
+// app.get('/auth', controllers.auth)
+// app.post('/signup', controllers.signup)
+// app.post('/login', controllers.login);
+// app.post('/logout', controllers.logout);
+// app.get('/:userId', controllers.mypage.get);
+// app.patch('/:userId', controllers.mypage.patch);
+// app.delete('/:userId', controllers.mypage.delete)
+
 app.use('/auth', authRouter);
 // app.use('/main', mainRouter);
 app.use('/mealkit', mealkitRouter);
 // app.use('/todaymenu', todayMenuRouter);
-app.use('/user', userRouter) 
+app.use('/user',userRouter) 
 
 
 const HTTPS_PORT = process.env.HTTPS_PORT || 4000;
