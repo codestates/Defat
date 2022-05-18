@@ -27,7 +27,7 @@ const Body =styled.div`
 `
 function App() {
   const [isLogin,setIsLogin] = useState(false)
-  const [userInfo,setuserInfo] = useState(null)
+  const [userInfo,setuserInfo] = useState({userId:'',password:'',nickname:''})
   const handleLoginSuccess=()=>{
     setIsLogin(true)
     
@@ -38,7 +38,7 @@ function App() {
     
     <Div>
     <Router>
-      <Header handleLoginSuccess={handleLoginSuccess} setuserInfo={setuserInfo} isLogin={isLogin} userInfo={userInfo}/>
+      <Header handleLoginSuccess={handleLoginSuccess} setuserInfo={setuserInfo} isLogin={isLogin} setIsLogin={setIsLogin} userInfo={userInfo}/>
       <Body>
       <Routes>
         <Route exact path="/" element={<MainPage />} />
