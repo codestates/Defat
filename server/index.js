@@ -29,7 +29,7 @@ app.use('/auth', authRouter);
 // app.use('/main', mainRouter);
 app.use('/mealkit', mealkitRouter);
 app.use('/todaymenu', todayMenuRouter);
-app.use('/user', userRouter) 
+app.use('/user',userRouter) 
 
 
 const HTTPS_PORT = process.env.HTTPS_PORT || 4000;

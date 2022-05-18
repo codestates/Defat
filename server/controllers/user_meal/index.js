@@ -1,3 +1,3 @@
 module.exports = {
-  user_meal : require('./user_meal')
+    user_meal : require('./user_meal')
 };

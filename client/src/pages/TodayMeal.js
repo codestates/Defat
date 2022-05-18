@@ -59,13 +59,14 @@ function TodayMeal({ isLogin }) {
   const week = ['일', '월', '화', '수', '목', '금', '토'];
   const getDay = week[new Date().getDay()];
   const [user, setUser] = useState({});
-  useEffect(() => {
-    if (isLogin) {
-      axios
-        .get('https://localhost:4000/todaymenu')
-        .then((resp) => console.log(resp));
-    }
-  }, []);
+
+  // useEffect(() => {
+  //   if (isLogin) {
+  //     axios
+  //       .get('https://localhost:4000/todaymenu/')
+  //       .then((resp) => console.log(resp));
+  //   }
+  // }, []);
 
   const clickPlus = (num) => {
     setOpenModal(!openModal);
@@ -96,6 +97,12 @@ function TodayMeal({ isLogin }) {
           return;
         }
       }
+      axios
+        .post('https://localhost:4000/todaymenu', {
+          kit_id: food.kit_id,
+          when: 'breakfast',
+        })
+        .then((resp) => console.log('성공'));
       setMorning([...morning, food]);
     }
     if (modalNum === 2) {
@@ -106,6 +113,12 @@ function TodayMeal({ isLogin }) {
           return;
         }
       }
+      axios
+        .post('https://localhost:4000/todaymenu/', {
+          kit_id: food.kit_id,
+          when: 'lunch',
+        })
+        .then((resp) => console.log('성공'));
       setLunch([...lunch, food]);
     }
     if (modalNum === 3) {
@@ -116,6 +129,12 @@ function TodayMeal({ isLogin }) {
           return;
         }
       }
+      axios
+        .post('https://localhost:4000/todaymenu/', {
+          kit_id: food.kit_id,
+          when: 'dinner',
+        })
+        .then((resp) => console.log('성공'));
       setDinner([...dinner, food]);
     }
   };
