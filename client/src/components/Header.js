@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginModal from './LoginModal';
-import axios from 'axios'
-function Header({handleLoginSuccess,isLogin,setuserInfo,userInfo}) {
+import axios from 'axios';
+function Header({
+  handleLoginSuccess,
+  isLogin,
+  setuserInfo,
+  userInfo,
+  setIsLogin,
+}) {
   const Button = styled.button`
     display: inline-block;
     border-radius: 3px;
@@ -33,31 +39,42 @@ function Header({handleLoginSuccess,isLogin,setuserInfo,userInfo}) {
     width: 33vw;
     padding: 10px;
   `;
-  const LoginCompleteDiv = styled.div`
-    
-  `
-  
-  const [isOpen, setIsOpen] = useState(false)
-  const clickButton = () => {
-    setIsOpen(!isOpen)
+  const LoginCompleteDiv = styled.div``;
 
-  }
-  const logoutButton = () =>{
-   
-    
-  }
-  console.log(userInfo)
+  const [isOpen, setIsOpen] = useState(false);
+  const clickButton = () => {
+    setIsOpen(!isOpen);
+  };
+  const logoutButton = () => {
+    axios.post('https://localhost:4000/auth/logout');
+    setIsLogin(false);
+    setIsOpen(false);
+  };
+  console.log(userInfo);
   return (
     <div>
       <Div>
         <Link to="/">
           <Img src="img/logo2.png" />
         </Link>
-        {isLogin ?<div>
-          <LoginCompleteDiv>어서오시게  님 <button onClick={logoutButton}>로그아웃</button></LoginCompleteDiv>
-          
-          </div>:<Button onClick={clickButton}>로그인</Button>}
-         {isOpen? <LoginModal handleLoginSuccess={handleLoginSuccess} setuserInfo={setuserInfo} setIsOpen={setIsOpen} isOpen={isOpen}/>:null}
+        {isLogin ? (
+          <div>
+            <LoginCompleteDiv>
+              어서오시게 {userInfo.nickname} 님{' '}
+              <button onClick={logoutButton}>로그아웃</button>
+            </LoginCompleteDiv>
+          </div>
+        ) : (
+          <Button onClick={clickButton}>로그인</Button>
+        )}
+        {isOpen ? (
+          <LoginModal
+            handleLoginSuccess={handleLoginSuccess}
+            setuserInfo={setuserInfo}
+            setIsOpen={setIsOpen}
+            isOpen={isOpen}
+          />
+        ) : null}
       </Div>
       <Div>
         <Link to="/Mealkit">
