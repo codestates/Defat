@@ -65,7 +65,7 @@ function Signin() {
   const clickSignUp = () => {
     if (onId && onNickname & onPwd & onCheckPwd) {
       axios
-        .post('http://localhost:4000/auth/signup', {
+        .post('http://localhost:80/auth/signup', {
           userId: id,
           nickname: nickname,
           password: pwd,

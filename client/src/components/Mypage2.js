@@ -39,7 +39,7 @@ function Mypage2() {
     setCheckPwd(e.target.value);
   };
   const withdrawal = () => {
-    axios.delete(`http://localhost:4000/user/mypage/${id}`)
+    axios.delete(`http://localhost:80/user/mypage/${id}`)
     .then((resp) => alert('탈퇴 성공'))
   };
   return (

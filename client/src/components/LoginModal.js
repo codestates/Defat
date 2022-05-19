@@ -92,11 +92,11 @@ function LoginModal({ handleLoginSuccess, setuserInfo, controlClose }) {
       setErrMessage('잘못된 정보입니다');
     } else {
       axios
-        .post('http://localhost:4000/auth/login', loginInfo)
+        .post('http://localhost:80/auth/login', loginInfo)
         .then(() => handleLoginSuccess())
         .then(() => {
           return axios.get(
-            `http://localhost:4000/user/mypage/${loginInfo.userId}`
+            `http://localhost:80/user/mypage/${loginInfo.userId}`
           );
         })
         .then((res) => setuserInfo(res.data.data.userInfo))

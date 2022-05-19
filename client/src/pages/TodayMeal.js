@@ -60,7 +60,7 @@ function TodayMeal({ isLogin }) {
   const getDay = week[new Date().getDay()];
   useEffect(() => {
     if (isLogin) {
-      axios.get('http://localhost:4000/todaymenu/').then((resp) => {
+      axios.get('http://localhost:80/todaymenu/').then((resp) => {
         const userInfo = resp.data.data;
         console.log(userInfo);
         for (let i = 0; i < userInfo.length; i++) {
@@ -107,21 +107,21 @@ function TodayMeal({ isLogin }) {
   const removeFood = (idx) => {
     if (modalNum === 1) {
       axios
-        .patch('http://localhost:4000/todaymenu/?when=breakfast')
+        .patch('http://localhost:80/todaymenu/?when=breakfast')
         .then(() => console.log('삭제'));
       morning.splice(idx, 1);
       setMorning([...morning]);
     }
     if (modalNum === 2) {
       axios
-        .patch('http://localhost:4000/todaymenu/?when=lunch')
+        .patch('http://localhost:80/todaymenu/?when=lunch')
         .then(() => console.log('삭제'));
       lunch.splice(idx, 1);
       setLunch([...lunch]);
     }
     if (modalNum === 3) {
       axios
-        .patch('http://localhost:4000/todaymenu/?when=dinner')
+        .patch('http://localhost:80/todaymenu/?when=dinner')
         .then(() => console.log('삭제'));
       dinner.splice(idx, 1);
       setDinner([...dinner]);
@@ -139,7 +139,7 @@ function TodayMeal({ isLogin }) {
         }
       }
       axios
-        .post('http://localhost:4000/todaymenu', {
+        .post('http://localhost:80/todaymenu', {
           kit_id: food.kit_id,
           when: 'breakfast',
         })
@@ -155,7 +155,7 @@ function TodayMeal({ isLogin }) {
         }
       }
       axios
-        .post('http://localhost:4000/todaymenu/', {
+        .post('http://localhost:80/todaymenu/', {
           kit_id: food.kit_id,
           when: 'lunch',
         })
@@ -171,7 +171,7 @@ function TodayMeal({ isLogin }) {
         }
       }
       axios
-        .post('http://localhost:4000/todaymenu/', {
+        .post('http://localhost:80/todaymenu/', {
           kit_id: food.kit_id,
           when: 'dinner',
         })
