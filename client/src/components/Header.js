@@ -46,7 +46,7 @@ function Header({
     setIsOpen(true);
   };
   const logoutButton = () => {
-    axios.post('http://localhost:8080/auth/logout');
+    axios.post(`${process.env.REACT_APP_API_URL}/auth/logout`);
     setIsLogin(false);
     setIsOpen(false);
   };
