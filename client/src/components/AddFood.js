@@ -29,12 +29,12 @@ function AddFood({ addFoods }) {
   const handleReport = (event) => {
     event.preventDefault();
     if (inputText === null || inputText === '') {
-      axios.get('http://localhost:80/mealkit').then((resp) => {
+      axios.get('http://localhost:8080/mealkit').then((resp) => {
         setSearchList(resp.data.data);
       });
     } else {
       axios
-        .get(`http://localhost:80/mealkit/find/${inputText}`)
+        .get(`http://localhost:8080/mealkit/find/${inputText}`)
         .then((resp) => {
           console.log(resp.data.data);
           resp.data.data.length === 0

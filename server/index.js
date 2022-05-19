@@ -30,7 +30,7 @@ app.use('/todaymenu', todayMenuRouter);
 app.use('/user',userRouter) 
 
 
-const PORT = process.env.HTTP_PORT || 4000;
+const PORT = process.env.HTTP_PORT || 8080;
 
 
 app.listen(PORT, () => console.log("서버 정상 작동"));
