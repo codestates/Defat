@@ -46,7 +46,7 @@ function Header({
     setIsOpen(true);
   };
   const logoutButton = () => {
-    axios.post('https://localhost:4000/auth/logout');
+    axios.post('http://localhost:4000/auth/logout');
     setIsLogin(false);
     setIsOpen(false);
   };
