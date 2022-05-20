@@ -39,6 +39,7 @@
 * Position: **Back-End(Team Leader)**
 * GitHub : [**Sangkan-K**](https://github.com/Sangkan-K)
 * Stack : `Node` `Sequelize` `JWT` `Express` `MySQL`
+* Work : 초기 환경 설정 , 서버 구축 및 라우팅 설정 , 검색/필터링 기능 구현 , DB 시드삽입 , API docs / 스키마 작성 , 오늘의 식단 조회/수정 기능 구현
 
 ***
 </details>
@@ -49,7 +50,7 @@
 * Position: **Back-End**
 * GitHub : [**Bagyun0107**](https://github.com/BaGyun0107)
 * Stack : `Node` `Sequelize` `JWT` `Express` `MySQL`
-
+* Work : JWT 로그인 구현, 검색/필터링 기능 구현, Architecture Diagram 작성, Mypage 구현, DB 모델 생성, 스키마 작성, 오늘의 식단 조회/수정 기능 구현
 ***
 </details>
 
@@ -72,3 +73,4 @@
 * Work : 프론트 구조 설계, 메인페이지 및 밀키트 모달 CSS ,로그인,로그아웃 기능 구현,라우터 기능 구현
 ***
 </details>
+
