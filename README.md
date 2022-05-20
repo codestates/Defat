@@ -36,8 +36,9 @@
 <details><summary>김상한</summary>
 
 ***
-* Position: Back-End(Team Leader)
-
+* Position: **Back-End(Team Leader)**
+* GitHub : [**Sangkan-K**](https://github.com/Sangkan-K)
+* Stack : `Node` `Sequelize` `JWT` `Express` `MySQL`
 
 ***
 </details>
@@ -45,7 +46,9 @@
 <details><summary>박윤신</summary>
 
 ***
-* Position: Back-End
+* Position: **Back-End**
+* GitHub : [**Bagyun0107**](https://github.com/BaGyun0107)
+* Stack : `Node` `Sequelize` `JWT` `Express` `MySQL`
 
 ***
 </details>
@@ -53,17 +56,19 @@
 <details><summary>윤선웅</summary>
 
 ***
-* Position: Front-End
-
+* Position: **Front-End**
+* GitHub : [**Sun970324**](https://github.com/Sun970324)
+* Stack : `React` `Redux` `React-Router` `JavaScript` `Styled-Components` `Axios`
+* Work : 페이지 구조, CSS, axios 요청 로직 설계, 식단 추가, 삭제 기능 구현, 검색 기능 구현, 회원가입, 회원탈퇴 기능 구현
 ***
 </details>
 
 <details><summary>박상하</summary>
 
 ***
-* Position: Front-End
-
+* Position: **Front-End**
+* GitHub : [**gamemakerr**](https://github.com/gamemakerr)
+* Stack : `React` `Redux` `React-Router` `JavaScript` `Styled-Components` `Axios`
+* Work : 프론트 구조 설개, 메인페이지 및 밀키트 모달 CSS ,로그인,로그아웃 기능 구현,라우터 기능 구현
 ***
 </details>
-
-
