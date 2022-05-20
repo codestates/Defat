@@ -69,6 +69,6 @@
 * Position: **Front-End**
 * GitHub : [**gamemakerr**](https://github.com/gamemakerr)
 * Stack : `React` `Redux` `React-Router` `JavaScript` `Styled-Components` `Axios`
-* Work : 프론트 구조 설개, 메인페이지 및 밀키트 모달 CSS ,로그인,로그아웃 기능 구현,라우터 기능 구현
+* Work : 프론트 구조 설계, 메인페이지 및 밀키트 모달 CSS ,로그인,로그아웃 기능 구현,라우터 기능 구현
 ***
 </details>
