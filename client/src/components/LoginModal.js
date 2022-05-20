@@ -78,8 +78,7 @@ const A = styled.a`
   width: 60%;
 `;
 
-function LoginModal({ handleLoginSuccess, setuserInfo, setIsopen }) {
-  const [open, setOpen] = useState(true);
+function LoginModal({ handleLoginSuccess, setuserInfo, controlClose }) {
   const [loginInfo, setLoginInfo] = useState({
     userId: '',
     password: '',
@@ -93,23 +92,22 @@ function LoginModal({ handleLoginSuccess, setuserInfo, setIsopen }) {
       setErrMessage('잘못된 정보입니다');
     } else {
       axios
-        .post('https://localhost:4000/auth/login', loginInfo)
+        .post(`${process.env.REACT_APP_API_URL}/auth/login`, loginInfo)
         .then(() => handleLoginSuccess())
         .then(() => {
           return axios.get(
-            `https://localhost:4000/user/mypage/${loginInfo.userId}`
+            `${process.env.REACT_APP_API_URL}/user/mypage/${loginInfo.userId}`
           );
         })
         .then((res) => setuserInfo(res.data.data.userInfo))
-        .then(() => setOpen(false))
-        // .then(() => setIsopen(false));
+      controlClose(false);
     }
   };
 
   return (
     <Modal
-      isOpen={open}
-      onRequestClose={() => setOpen(false)}
+      isOpen={true}
+      onRequestClose={() => controlClose(false)}
       style={{
         overlay: {
           position: 'fixed',
@@ -135,7 +133,7 @@ function LoginModal({ handleLoginSuccess, setuserInfo, setIsopen }) {
         },
       }}
     >
-      <Xbutton onClick={() => setOpen(false)}>X</Xbutton>
+      <Xbutton onClick={() => controlClose(false)}>X</Xbutton>
       <ColumnDiv>
         <Logoimage src="img/logo.png"></Logoimage>
 
@@ -172,7 +170,7 @@ function LoginModal({ handleLoginSuccess, setuserInfo, setIsopen }) {
         <OauthLogin primary="2">네이버 로그인</OauthLogin>
         <OauthLogin>구글 로그인</OauthLogin>
         <Link to="/signin">
-          {<Signupbutton onClick={() => setOpen(false)}>회원가입</Signupbutton>}
+          {<Signupbutton onClick={() => controlClose(false)}>회원가입</Signupbutton>}
         </Link>
       </ColumnDiv>
     </Modal>

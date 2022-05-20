@@ -51,7 +51,7 @@ function Mealkit() {
   const [dataList, setDataList] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   useEffect(() => {
-    axios.get('https://localhost:4000/mealkit').then((resp) => {
+    axios.get(`${process.env.REACT_APP_API_URL}/mealkit`).then((resp) => {
       setDataList(resp.data.data);
     });
   }, []);
@@ -61,12 +61,12 @@ function Mealkit() {
   const search = (e) => {
     e.preventDefault();
     if (searchInput === null || searchInput === '') {
-      axios.get(`https://localhost:4000/mealkit`).then((resp) => {
+      axios.get(`${process.env.REACT_APP_API_URL}/mealkit`).then((resp) => {
         setDataList(resp.data.data);
       });
     }
     axios
-      .get(`https://localhost:4000/mealkit/find/${searchInput}`)
+      .get(`${process.env.REACT_APP_API_URL}/mealkit/find/${searchInput}`)
       .then((resp) => setDataList(resp.data.data));
     setSearchInput('');
   };

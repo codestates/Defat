@@ -43,13 +43,16 @@ function Header({
 
   const [isOpen, setIsOpen] = useState(false);
   const clickButton = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(true);
   };
   const logoutButton = () => {
-    axios.post('https://localhost:4000/auth/logout');
+    axios.post(`${process.env.REACT_APP_API_URL}/auth/logout`);
     setIsLogin(false);
     setIsOpen(false);
   };
+  const controlClose = (val) => {
+    setIsOpen(val)
+  }
   console.log(userInfo);
   return (
     <div>
@@ -71,8 +74,7 @@ function Header({
           <LoginModal
             handleLoginSuccess={handleLoginSuccess}
             setuserInfo={setuserInfo}
-            setIsOpen={setIsOpen}
-            isOpen={isOpen}
+            controlClose={controlClose}
           />
         ) : null}
       </Div>
